@@ -1,0 +1,93 @@
+#!/usr/bin/env php
+<?php
+
+    // TODO
+    
+    /* import is a command-line script in PHP that accepts 
+     * as a command-line argument the path to a file that it
+     * iterates over the file’s lines, inserting each line as 
+     * a new row in places(pset8 batabase table)
+     */
+     
+    require(__DIR__ . "/../includes/config.php");
+    
+    // verify command line argument
+    if ($argc != 2)
+    {
+        printf("Usage:./import /path/to/file\n");
+        return 1;
+    }
+     
+    // setting file to 2nd command line argument 
+    $file = $argv[1];
+    
+    // Error checking if file exists 
+    if (!file_exists($file))
+    {
+        printf("Error! File does not exist.\n");
+        return 1;
+    }
+    
+    // Error checking if file if readable
+    if (!is_readable($file))
+    {
+        printf("Error! File not readable.\n");
+        return 1;
+    }
+    
+    // open file with read permission
+    $file = fopen($file, "r");
+    
+    // check if file was read successfully
+    if (!$file)
+    {
+        printf("Error! Could not read file.\n");
+        return 1;
+    }
+    
+    //printf("File read successfully.\n");
+    //return 0;
+    
+    /* iterates over the file, inserting data into the rows  
+     * in database table 'places'. checks for error on each  
+     * and when done reports 
+     */
+    $count = 1;
+    $error = 0;
+    while(($line = fgetcsv($file , 0 , "\t")) !== false)
+    {
+       // print_r($line); // shows what it is inserting
+        $query = CS50::query("INSERT INTO places (country_code, postal_code, place_name, admin_name1, admin_code1, admin_name2, admin_code2, admin_name3, admin_code3, latitude, longitude, accuracy)
+                    VALUES(?,?,?,?,?,?,?,?,?,?,?,?)" , 
+                    $line[0],
+                    $line[1],
+                    $line[2],
+                    $line[3],
+                    $line[4],
+                    $line[5],
+                    $line[6],
+                    $line[7],
+                    $line[8],
+                    $line[9],
+                    $line[10],
+                    $line[11]);
+        if($query === false)
+        {
+            print("error in entering line ".count);
+            ++$error;
+        }
+        ++$count;
+    }
+    
+    printf("Success! total lines added : ".($count-$error));
+    fclose($file);
+    return 0;
+    
+    
+    
+    
+    
+    
+     
+    
+?>

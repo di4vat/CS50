@@ -1,0 +1,19 @@
+0.  BMP supports 16 million colors, GIF suppots 256 colors, JPEG supports 16.7 million colors, and PNG supports 16 million or 48 bit truecolor.
+1.  GIF supports animation.
+2.  Lossy compression reduces a file by permanently elininatin certain informantion, hence making the file smaller in size while lossless compression keep every single bit of data that was originally in the file after being uncompressed, hence files are usually large size. 
+3.  BMP is lossy comppressed.
+4.  The system modifies the filename's first character in the file's directory entry to signal that the file has been deleted and that the directory entry can be recycled and the systme moves all the fil's FAT clusters to the hard drive's list of fress clusters. The actual file data is never touched.  
+5.  I will overwrite the hard disk with one or two passes of random data. 
+6.  stdint.h is a header file in c standard library to allow programmers to write more portable code by providing a set of typedefs that specify exact-width integer types, together with the defined minimum and maximum allowable values for each type, using macros.
+7.  To specify the width (number of bits) of signed and unsigned int types.
+8.  BYTE is 8 bytes, DWORD is 32 bytes, LONG is 32 bytes, and a WORD is 16 bytes.
+9.  In ASCII, the first two bytes are the character 'B' and 'M'.
+10. bfSize describes the entire file's size in bytes. biSize is just the size of the BITMAPINFOHEADER struct in bytes.
+11. It means that the vertical orientation of the image is top-down.
+12. biBitCount.
+13. It might return NULL if there is not ouput file to write to.
+14. So that it reads 1 byte at a time.
+15. padding will have a value of 3.
+16. Moves to a specified location (start, current, or end) in the file to seek from.
+17. Seeks from currnet location.
+18. Robert Bowden

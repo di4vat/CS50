@@ -1,0 +1,11 @@
+0.  It is an artificial long word said to mean a lung disease caused by inhaling very fine ash and sand dust.
+1.  Getrusage() returns resource usage measures for the calling process itself, the children of the calling process, or the calling thread.
+2.  It has sixteen members.
+3.  We pass before and after by reference so that if or when the variables are modified outside of function calculate, it will still work. Moreover, also saves memory by not needing to create new variable
+4.  Main first checks the right number of arguments and returns 1 if not promting wrong usage error message. It then creates the structures to store time and baselines. After loading the dictionary, main opens up the text to spellcheck with fopen. Then go into a for loop, which says to run fgetc on the file each loop to get the info until main receives an end of file notification. Each loop runs an if statement to filter out nonalphabetical characters (excluding apostrophes) and, if true, adds the character to the word to be spellchecked (unless the alphabetical string is too long to be a word). If failed, it checks (via elseif) whether the character is a number and, if true, terminates the word. Finally, if variable word still has an index of over 0, that means we've reached the end of the word, so it terminates the current word, updates some benchmarks, and checks the spelling. After the for loop, checks for errors, closes the text file, determines size, unloads, and prints calculation results.
+5.  Relying on fscanf could cause problems with alphanumeric words.
+6.  Check and load are constant because we don't want them to be changed.
+7.  I used a node of linked list which contains a word of the maximum length plus one of the expected words for the dictionary and a pointer to the next node. To load the dictionary, I used a large hashtable 25% more than the expected words in the dictionary to handle collision well.
+8.  Time is total was: 19.63.
+9.  I used a different hash function.
+10. No.
